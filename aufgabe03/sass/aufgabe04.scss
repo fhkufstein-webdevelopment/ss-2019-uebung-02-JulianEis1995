@@ -1,0 +1,37 @@
+@charset "utf-8";
+@import "compass/reset";
+//sollte diese folgende Zeile zu einer Fehlermeldung führen - kommentieren Sie die folgende und die obere Zeile aus und kommentieren Sie die nachfolgende ein
+@import "compass/css3";
+
+@mixin margin ($top: null, $right: null, $bottom: null, $left: null)
+{
+  margin: $top $right $bottom $left;
+}
+
+@mixin breakpoint ($width)
+{
+  @if $width == 990px
+  {
+    @media (min-width: $width)
+    {
+        @content;
+    }
+  }
+}
+
+body
+{
+  @include margin(5px);
+  @include margin(5px 10px);
+  @include margin(5px 8px 10px);
+  @include margin(5px 8px 10px 14px);
+}
+
+.mobileInvisible
+{
+  display:none;
+  @include breakpoint(990px)
+  {
+    display: block;
+  }
+}
