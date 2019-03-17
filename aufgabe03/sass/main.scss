@@ -3,29 +3,54 @@
 //sollte diese folgende Zeile zu einer Fehlermeldung führen - kommentieren Sie die folgende und die obere Zeile aus und kommentieren Sie die nachfolgende ein
 @import "compass/css3";
 
-
-
 @import "base"; /* inkludiert die Datei _base.scss */
 @import "button"; /* inkludiert die Datei _button.scss */
+
+@mixin browser($property, $css) {
+    -webkit-transition-#{$property} : $css;
+    -moz-transition-#{$property} : $css;
+    -o-transition-#{$property} : $css;
+    transition-#{$property} : $css;
+}
 
 
 .btn {
     /* TODO */
+    @include browser(property, padding);
+    @include browser(delay, 0ms);
+    @include browser(duration, 500ms);
+    @include browser(timing-function, linear);
 
     &.ease-in {
         /* TODO */
+        @include browser(property, padding);
+        @include browser(delay, 0ms);
+        @include browser(duration, 500ms);
+        @include browser(timing-function, ease-in);
     }
 
     &.ease-out {
         /* TODO */
+        @include browser(property, padding);
+        @include browser(delay, 0ms);
+        @include browser(duration, 500ms);
+        @include browser(timing-function, ease-out);
     }
 
     &.ease-in-out {
         /* TODO */
+        @include browser(property, padding);
+        @include browser(delay, 0ms);
+        @include browser(duration, 500ms);
+        @include browser(timing-function, ease-in-out);
     }
 
     &.green {
         /* TODO */
+        @include browser(property, all);
+        @include browser(delay, 0ms);
+        @include browser(duration, 500ms);
+        @include browser(timing-function, linear);
     }
 
     &.animation {
